@@ -11,7 +11,7 @@ nickname = input("Choose your nickname: ")
 
 # declare same connections that server uses
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(('local_ip', 20598))
+client.connect((local_ip, 20598))
 
 def receive():
     while True:
