@@ -1,5 +1,6 @@
 import threading
 import socket
+import time
 
 host = '0.0.0.0' # accept all same network ips
 port = 20598
@@ -18,8 +19,17 @@ def broadcast(message):
 def handle(client):
     while True:
         try:
-            message = client.recv(1024) # number of bytes to receive
-            broadcast(message)
+            message = client.recv(1024).decode('ascii') # number of bytes to receive
+            comparison = message.lower()
+            if "weather" in comparison:
+                response = message + " -> " + "Partly Cloudy, 63 Degrees Fahrenheit"
+                broadcast(response.encode('ascii')) 
+            elif "time" in comparison:
+                current_time = time.strftime("%H:%M:%S")
+                response = message + " -> " + current_time
+                broadcast(response.encode('ascii'))
+            else:
+                broadcast(message.encode('ascii'))
         except:
             index = clients.index(client)
             clients.remove(client) # remove client if it disconnects
