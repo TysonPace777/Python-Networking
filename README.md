@@ -6,9 +6,7 @@ This program connects users through the internet and allows users to enter with 
 
 This code was written so I could have a fun project that would allow me to write messages securely to others without going through a mainstream chatting software. 
 
-{Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the software running (you will need to show two pieces of software running and communicating with each other) and a walkthrough of the code.}
-
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/mso7g_B6UEY)
 
 # Network Communication
 
@@ -27,7 +25,7 @@ I used python which is a simple and widely used language for all sorts of projec
 # Useful Websites
 
 * [Youtube](https://www.youtube.com/watch?v=bwTAVGg_kVs)
-* [Web Site Name](http://url.link.goes.here)
+* [Python Documents](https://docs.python.org/3/howto/sockets.html)
 
 # Future Work
 
