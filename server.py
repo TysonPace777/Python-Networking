@@ -28,6 +28,12 @@ def handle(client):
                 current_time = time.strftime("%H:%M:%S")
                 response = message + " -> " + current_time
                 broadcast(response.encode('ascii'))
+            elif "users" in comparison:
+                response = message + " -> " + str(len(nicknames))
+                broadcast(response.encode('ascii'))
+            elif "help" in comparison:
+                response = message + " -> " + "weather, time, users, help"
+                broadcast(response.encode('ascii'))
             else:
                 broadcast(message.encode('ascii'))
         except:
