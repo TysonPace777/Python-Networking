@@ -12,15 +12,18 @@ server.listen()
 clients = []
 nicknames = []
 
+# Sends messages to all users in the chat
 def broadcast(message):
     for client in clients:
         client.send(message)
 
+# Handles client messages and removes if disconnected
 def handle(client):
     while True:
         try:
             message = client.recv(1024).decode('ascii') # number of bytes to receive
             comparison = message.lower()
+            # Server requests for certain responses
             if "weather" in comparison:
                 response = message + " -> " + "Partly Cloudy, 63 Degrees Fahrenheit"
                 broadcast(response.encode('ascii')) 
@@ -45,6 +48,7 @@ def handle(client):
             nicknames.remove(nickname)
             break
 
+# Handles client connections
 def receive():
     while True:
         client, address = server.accept()

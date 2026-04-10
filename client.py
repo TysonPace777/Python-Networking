@@ -13,6 +13,7 @@ nickname = input("Choose your nickname: ")
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect((local_ip, 20598))
 
+# Constantly receives messages and if server sends NICK it sends nickname back
 def receive():
     while True:
         try:
@@ -26,6 +27,7 @@ def receive():
             client.close()
             break
 
+# Builds message into what the console sees
 def write():
     while True:
         message = f"{nickname}: {input('')}"
